@@ -1,6 +1,5 @@
 import { cache } from "react";
 import { createClient } from "@/lib/supabase/server";
-import { percentOff } from "@/lib/format";
 import type { City, DeliveryRate, ProductWithSupplier, Category } from "@/lib/types";
 
 const PRODUCT_SELECT = "*, supplier:suppliers(id, name, city_code, market_name)";
@@ -58,14 +57,3 @@ export const getProductBySlug = cache(
     return (data as unknown as ProductWithSupplier) ?? null;
   }
 );
-
-/** The product with the biggest markdown, for the homepage hero's price-comparison card. */
-export const getFeaturedProduct = cache(async (): Promise<ProductWithSupplier | null> => {
-  const products = await getProducts({});
-  if (products.length === 0) return null;
-  return products.reduce((best, product) =>
-    percentOff(product.price, product.mall_price) > percentOff(best.price, best.mall_price)
-      ? product
-      : best
-  );
-});

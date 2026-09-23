@@ -5,6 +5,8 @@ import { CartProvider } from "@/lib/cart-context";
 import { Header } from "@/components/Header";
 import { DeliveryLine } from "@/components/DeliveryLine";
 import { Footer } from "@/components/Footer";
+import { MobileBottomNav } from "@/components/MobileBottomNav";
+import { LocationSelector } from "@/components/LocationSelector";
 import { getSelectedCity } from "@/lib/city-server";
 import { getCities, getDeliveryRates } from "@/lib/data";
 
@@ -38,15 +40,18 @@ export default async function RootLayout({
 
   const selectedCity =
     cities.find((c) => c.code === selectedCityCode) ?? cities[0];
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
 
   return (
     <html lang="en" className={`${bricolage.variable} ${figtree.variable}`}>
       <body className="min-h-screen bg-ground font-body text-ink antialiased">
         <CartProvider>
+          <LocationSelector />
           <Header selectedCity={selectedCityCode} />
           {selectedCity && <DeliveryLine city={selectedCity} rates={rates} />}
-          <main>{children}</main>
-          <Footer cities={cities} />
+          <main className="pb-16 md:pb-0">{children}</main>
+          <Footer cities={cities} whatsappNumber={whatsappNumber} />
+          <MobileBottomNav />
         </CartProvider>
       </body>
     </html>

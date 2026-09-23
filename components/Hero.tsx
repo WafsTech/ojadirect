@@ -3,6 +3,13 @@ import { PriceSticker } from "@/components/PriceSticker";
 import { formatNaira, percentOff } from "@/lib/format";
 import type { ProductWithSupplier } from "@/lib/types";
 
+const TRUST_ITEMS = [
+  "Verified warehouses",
+  "Checked before dispatch",
+  "Transparent delivery fees",
+  "Refund or replacement for wrong or damaged items",
+];
+
 export function Hero({ product }: { product: ProductWithSupplier | null }) {
   return (
     <section className="border-b border-line bg-paper">
@@ -13,8 +20,8 @@ export function Hero({ product }: { product: ProductWithSupplier | null }) {
           </h1>
           <p className="mt-4 max-w-md text-base text-muted sm:text-lg">
             We buy from verified wholesalers in Lagos, Ota and Ibadan, check
-            every item before dispatch, and deliver straight to you. No pay on
-            delivery — pay up front, tracked all the way.
+            every item before dispatch, and you pay upfront — no pay on
+            delivery.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a
@@ -25,7 +32,7 @@ export function Hero({ product }: { product: ProductWithSupplier | null }) {
             </a>
             <a
               href="#how-it-works"
-              className="rounded-full border border-line px-6 py-3 text-sm font-semibold text-ink transition hover:border-green"
+              className="rounded-full border border-line px-6 py-3 text-sm font-semibold text-ink transition hover:border-green focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green"
             >
               How it works
             </a>
@@ -34,13 +41,14 @@ export function Hero({ product }: { product: ProductWithSupplier | null }) {
 
         {product && (
           <div className="relative mx-auto w-full max-w-sm rounded-[22px] border border-line bg-ground p-5">
-            <div className="relative aspect-square overflow-hidden rounded-[16px] bg-paper">
+            <div className="relative aspect-square overflow-hidden rounded-2xl bg-paper">
               {product.image_urls[0] && (
                 <Image
                   src={product.image_urls[0]}
                   alt={product.name}
                   fill
                   sizes="(min-width: 768px) 384px, 90vw"
+                  priority
                   className="object-cover"
                 />
               )}
@@ -60,6 +68,19 @@ export function Hero({ product }: { product: ProductWithSupplier | null }) {
             </div>
           </div>
         )}
+      </div>
+
+      <div className="border-t border-line bg-ground">
+        <ul className="mx-auto flex max-w-6xl flex-wrap justify-center gap-x-6 gap-y-2 px-4 py-3 text-xs font-medium text-muted sm:px-6 sm:text-sm">
+          {TRUST_ITEMS.map((item) => (
+            <li key={item} className="flex items-center gap-1.5">
+              <span aria-hidden="true" className="text-green">
+                ✓
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

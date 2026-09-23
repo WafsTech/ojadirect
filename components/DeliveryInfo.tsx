@@ -2,7 +2,7 @@ import { formatNaira } from "@/lib/format";
 import type { CityCode } from "@/lib/city";
 import type { City } from "@/lib/types";
 
-export function DeliveryTable({
+export function DeliveryInfo({
   cities,
   selected,
 }: {
@@ -10,16 +10,18 @@ export function DeliveryTable({
   selected: CityCode;
 }) {
   return (
-    <section className="py-12">
+    <section id="delivery" className="py-12">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">
           Delivery days by city
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-muted">
           Delivery days are fixed per city so we can batch dispatches and keep
-          fees low.
+          fees low. The delivery fee itself depends on which city the product
+          ships from, not just where you&apos;re receiving it — see the fee on
+          each product.
         </p>
-        <div className="mt-6 overflow-x-auto rounded-[16px] border border-line">
+        <div className="mt-6 overflow-x-auto rounded-2xl border border-line">
           <table className="w-full min-w-[420px] border-collapse text-left text-sm">
             <thead>
               <tr className="bg-ground text-ink">

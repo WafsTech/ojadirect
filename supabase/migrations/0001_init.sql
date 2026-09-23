@@ -165,7 +165,7 @@ insert into products (
     '11111111-1111-1111-1111-111111111111',
     18000, 24500, 38000,
     array['Tested', 'Durable'],
-    array['https://images.unsplash.com/photo-1584990347449-a5d9f800a783?w=800'],
+    array['https://images.unsplash.com/photo-1580929753603-10519c6e480a?w=800'],
     true, true
   ),
   (
@@ -176,7 +176,7 @@ insert into products (
     '11111111-1111-1111-1111-111111111111',
     9500, 13500, 21000,
     array['Tested', 'Budget'],
-    array['https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=800'],
+    array['https://images.unsplash.com/photo-1654064754916-e3edeb09c042?w=800'],
     true, true
   ),
   (
@@ -187,7 +187,7 @@ insert into products (
     '44444444-4444-4444-4444-444444444444',
     6500, 9000, 15000,
     array['Durable'],
-    array['https://images.unsplash.com/photo-1584346133934-a3afd2a33c4d?w=800'],
+    array['https://images.unsplash.com/photo-1739133337655-1652d6df6581?w=800'],
     true, true
   ),
   (
@@ -198,7 +198,7 @@ insert into products (
     '33333333-3333-3333-3333-333333333333',
     22000, 29500, 45000,
     array['Tested', 'Durable'],
-    array['https://images.unsplash.com/photo-1616627547584-bf28cee262db?w=800'],
+    array['https://images.unsplash.com/photo-1601084195907-44baaa49dabd?w=800'],
     true, true
   ),
   (
@@ -209,7 +209,7 @@ insert into products (
     '33333333-3333-3333-3333-333333333333',
     9000, 12500, 19500,
     array['Budget'],
-    array['https://images.unsplash.com/photo-1631083216712-3d68c7e64ef7?w=800'],
+    array['https://images.unsplash.com/photo-1622480916526-285a5e0e533b?w=800'],
     true, true
   ),
   (
@@ -220,7 +220,7 @@ insert into products (
     '33333333-3333-3333-3333-333333333333',
     16000, 21500, 33000,
     array['Tested'],
-    array['https://images.unsplash.com/photo-1592078615290-033ee584e267?w=800'],
+    array['https://images.unsplash.com/photo-1646840299746-0be3a2604eb0?w=800'],
     true, true
   ),
   (
@@ -286,7 +286,7 @@ insert into products (
     '55555555-5555-5555-5555-555555555555',
     5500, 7800, 13000,
     array['Tested', 'Durable'],
-    array['https://images.unsplash.com/photo-1516131206008-dd041a9764fd?w=800'],
+    array['https://images.unsplash.com/photo-1685342654383-584d56907425?w=800'],
     true, true
   )
 on conflict (slug) do nothing;

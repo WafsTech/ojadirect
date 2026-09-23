@@ -14,7 +14,7 @@ export function DeliveryLine({
   return (
     <div className="border-b border-line bg-green-tint">
       <p className="mx-auto max-w-6xl px-4 py-2 text-center text-sm text-green-dark sm:px-6">
-        Delivering to <strong>{city.name}</strong>: {city.delivery_days}
+        Delivering to <strong>{city.name}</strong> · {city.delivery_days}
         {typeof fee === "number" && <> · from {formatNaira(fee)}</>}
       </p>
     </div>

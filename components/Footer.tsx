@@ -1,7 +1,22 @@
 import Link from "next/link";
+import { WhatsAppIcon } from "@/components/Icons";
+import { whatsAppLink } from "@/lib/whatsapp";
 import type { City } from "@/lib/types";
 
-export function Footer({ cities }: { cities: City[] }) {
+const LINKS = [
+  { href: "/#products", label: "Shop" },
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/#delivery", label: "Delivery" },
+  { href: "/#trust", label: "Refund policy" },
+];
+
+export function Footer({
+  cities,
+  whatsappNumber,
+}: {
+  cities: City[];
+  whatsappNumber: string;
+}) {
   return (
     <footer className="border-t border-line bg-ink text-ground">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
@@ -28,16 +43,37 @@ export function Footer({ cities }: { cities: City[] }) {
           <div>
             <h4 className="text-sm font-semibold text-paper">Links</h4>
             <ul className="mt-2 space-y-1 text-sm text-ground/70">
-              <li>
-                <Link href="/" className="hover:text-paper">
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link href="/cart" className="hover:text-paper">
-                  Cart
-                </Link>
-              </li>
+              {LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-paper">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold text-paper">Contact</h4>
+            <ul className="mt-2 space-y-1 text-sm text-ground/70">
+              {whatsappNumber ? (
+                <li>
+                  <a
+                    href={whatsAppLink(whatsappNumber, "Hi Oja Direct, I have a question.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 hover:text-paper"
+                  >
+                    <WhatsAppIcon className="h-4 w-4" aria-hidden="true" />
+                    Chat on WhatsApp
+                  </a>
+                </li>
+              ) : (
+                <li className="text-ground/40">WhatsApp number not configured</li>
+              )}
+              {/* No email or phone line exists anywhere in this project yet — left out
+                  rather than invented. Add one here once there's a real one to show. */}
+              <li className="text-ground/40">Email — coming soon</li>
             </ul>
           </div>
         </div>

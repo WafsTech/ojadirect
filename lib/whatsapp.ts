@@ -20,6 +20,11 @@ export function buildProductMessage(params: {
   ].join("\n");
 }
 
+/** Used by the "no search results" empty state to offer a direct line to a human. */
+export function buildSearchHelpMessage(query: string): string {
+  return `Hi Oja Direct, I searched for "${query}" but didn't find it. Do you have this, or something similar?`;
+}
+
 export interface WhatsAppCartLine {
   name: string;
   qty: number;
