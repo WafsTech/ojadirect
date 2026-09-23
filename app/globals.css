@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #16211b;
+  --color-muted: #56615a;
+  --color-ground: #f2f4ef;
+  --color-paper: #ffffff;
+  --color-line: #dde3db;
+  --color-green: #146b3a;
+  --color-green-dark: #0d4e2a;
+  --color-green-tint: #e2efe6;
+  --color-sticker: #ffc93c;
+  --color-sticker-ink: #2a2100;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--color-green-tint);
+  color: var(--color-green-dark);
+}
